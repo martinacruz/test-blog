@@ -3,10 +3,11 @@
 <h1>Home</h1>
 <p><%= innerText%></p>
 
-<% for(let i = 0; i < usersPosts.length; i++) { %>
-    <h3><%= usersPosts[i].title%></h3>
-    <p><%= usersPosts[i].content%></p>
-    <a href="#" value=<%= usersPosts[i] %>>Read More...</a>
-<% } %>
+<% usersPosts.forEach((post) => { %>
+    <h3><%= post.title%></h3>
+    <p><%= post.content%></p>
+    <a href="/post/<%= post.title %>" value=<%= post %>>Read More...</a>
+ <% }) %>
+    
 
-<%- include('partials/footer')-%>
+<%- include('partials/footer')-%> 

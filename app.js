@@ -20,7 +20,6 @@ app.use(express.static("public"));
 //Home Route
 app.get('/', (req, res) => {
   res.render('home', {innerText: homeStartingContent, usersPosts: posts})
-  console.log(posts)
 
 })
 
@@ -48,6 +47,16 @@ app.post('/compose', (req, res) => {
   posts.push(post)
 
   res.redirect('/')
+})
+
+//Posts Routes
+app.get('/post/:title', (req, res) => {
+  const postName = req.params.title
+
+  posts.forEach(post => {
+    const storedTitle = post.title
+    if(storedTitle === postName) {console.log('Match Found');}
+  })
 })
 
 
